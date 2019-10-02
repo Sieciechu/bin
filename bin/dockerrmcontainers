@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ 0 -eq $(docker ps -a -q | wc -l) ]; then
+    echo "No containers to kill and remove"
+    exit 0
+fi;
+
+echo "Killed and removed containers:"
+docker kill $(docker ps -a -q) || docker rm --force $(docker ps -a -q)
+
