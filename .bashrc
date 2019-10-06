@@ -73,3 +73,6 @@ fi
 if [ -f /etc/bash_completion.d ] && ! shopt -oq posix; then
     . /etc/bash_completion.d
 fi
+
+PS1="[\u@\h \W]\\$ "
+
