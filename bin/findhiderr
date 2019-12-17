@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# redirect STDERR to /dev/null (hide errors)
+find $@ 2>/dev/null
