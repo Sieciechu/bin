@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Script is designed to mount whole git-repo and keep working dir
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+RELATIVE_PATH_TO_REPO_ROOT="$SCRIPT_DIR/.."
+APP_BASE_DIR="/app"
+
+WORKING_DIR=$(perl -pe "s#^.*?pattern#/$APP_BASE_DIR/pattern#g" <<<"$PWD")
+
+docker container run --rm -it \
+    -v ~/.composer:/root/.composer -v "$RELATIVE_PATH_TO_REPO_ROOT":$APP_BASE_DIR \
+    -w $WORKING_DIR \
+    php $@
