@@ -1,0 +1,11 @@
+#!/bin/bash
+
+branch=$@
+if [ -z "$branch" ]
+then
+    branch="master"
+fi
+
+git branch --merged $branch \
+    | grep -vP "(develop|master).*" `# excludes from the list branches like develop* and master*` \
+    | xargs -n 1 --interactive git branch -d
