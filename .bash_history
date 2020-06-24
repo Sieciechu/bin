@@ -5,3 +5,4 @@ find . -newermt 2019-07-16 ! -newermt 2019-07-17 -exec gwenview {} +;
 find . -newermt 2019-07-16 ! -newermt 2019-07-17 | xargs -I {} cp -au {} ~/some/path
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' $(docker ps -q)
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q)
+git log --graph --pretty=format:'%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn <%ce>%Creset %s'
