@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git log $@ --oneline | grep -iP 'jira-\d+' --only-matching | tr [a-z] [A-Z] | sort | uniq
+
