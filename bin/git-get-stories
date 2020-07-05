@@ -1,4 +1,7 @@
 #!/bin/bash
 
+# Example:
+# $ git get-stories origin/master..origin/develop
+
 git log $@ --oneline | grep -iP 'jira-\d+' --only-matching | tr [a-z] [A-Z] | sort | uniq
 
